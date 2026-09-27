@@ -1,0 +1,5 @@
+PRODUCT_MAKEFILES := \
+    $(LOCAL_DIR)/omni_LXX506.mk
+
+COMMON_LUNCH_CHOICES := \
+    omni_LXX506-eng 
