@@ -1,7 +1,9 @@
-# LXX506-ORANGEFOX-RECOVERY
+# # LXX506-ORANGEFOX-RECOVERY
+
 <img src = "https://wiki.orangefox.tech/api/wiki/banner.svg" width=500 >
-> [!WARNING]
-> **Read Carefully !!!**<br>
+
+## [!WARNING]
+> **Read Carefully !!!** <br>
 >
 > This is not a recovery image (instead a boot image) and it must be flashed into the /boot partition (since it's a virtual A/B device with no recovery partition). 
 
