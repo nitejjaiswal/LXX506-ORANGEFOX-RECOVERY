@@ -1,5 +1,5 @@
 # LXX506-ORANGEFOX-RECOVERY
-<img src = "https://wiki.orangefox.tech/api/wiki/banner.svg" >
+<img src = "https://wiki.orangefox.tech/api/wiki/banner.svg" width=500 >
 > [!WARNING]
 > **Read Carefully !!!**<br>
 >
