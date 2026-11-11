@@ -1,0 +1,4 @@
+# Early ADB and root debugging
+ro.adb.secure=0
+ro.debuggable=1
+persist.sys.usb.config=adb
