@@ -1,0 +1,41 @@
+on early-init
+    setenforce 0
+
+on init
+    mkdir /mnt/vendor/protect_f 0770 system system
+    mkdir /mnt/vendor/protect_s 0770 system system
+    mkdir /mnt/vendor/nvdata 0770 system system
+    mkdir /mnt/vendor/nvcfg 0770 system system
+    mkdir /mnt/vendor/persist 0770 system system
+
+service teed /vendor/bin/teed \
+    --datapath /data/vendor/t6/fs \
+    --sptapath /data/vendor/t6/app \
+    --systapath /vendor/app/t6 \
+    --prot /mnt/vendor/protect_f/tee \
+    --logpath /data/vendor/t6/tkcore.log \
+    --proprefix vendor.trustkernel
+    user system
+    group system
+    class core
+    seclabel u:r:recovery:s0
+
+on property:hwservicemanager.ready=true
+    start teed
+    start vendor.keymaster-4-1-trustkernel
+    start vendor.gatekeeper-1-0
+
+on property:ro.crypto.state=unsupported
+    stop teed
+    stop vendor.keymaster-4-1-trustkernel
+    stop vendor.gatekeeper-1-0
+
+on property:ro.crypto.state=unencrypted
+    stop teed
+    stop vendor.keymaster-4-1-trustkernel
+    stop vendor.gatekeeper-1-0
+
+on property:twrp.decrypt.done=true
+    stop teed
+    stop vendor.keymaster-4-1-trustkernel
+    stop vendor.gatekeeper-1-0
