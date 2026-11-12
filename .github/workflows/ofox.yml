@@ -27,10 +27,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      # Install ccache ONLY if not cleaning
       - name: Install ccache
-        if: github.event.inputs.clean_ccache == 'no'
-        run: sudo apt update && sudo apt install -y ccache
+  run: |
+    sudo apt-get update
+    sudo apt-get install -y ccache
+    which ccache
 
       # Restore cache ONLY if not cleaning
       - name: Setup ccache
